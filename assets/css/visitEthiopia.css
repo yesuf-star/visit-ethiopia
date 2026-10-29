@@ -138,18 +138,34 @@ body {
     transform: scale(1.05);
 }
 
-
-.toggle-button{
-display: none;
-position: absolute;
-    top: 1.5rem;
-    right: 0;
+  /* toggle-button */
+  
+.toggle-button {
+    display: none;
+    cursor: pointer;
 }
-.toggle-button span{
-    width: 3rem;
-    border: 1px solid;
-    margin: 0.25rem;
+
+.toggle-button span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px 0;
     display: block;
+    transition: 0.3s;
+}
+
+.submenu-bar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.submenu-bar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 
@@ -454,15 +470,8 @@ margin-top: auto;
 
 @media (max-width: 768px) {
     .header-cont {
-        flex-direction: column;
         gap: 15px;
         padding: 15px 20px;
-    }
-
-    .menu-bar-cont ul li {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
     }
 
     .landing-cont {
@@ -488,30 +497,59 @@ margin-top: auto;
         padding: 40px 20px;
     }
 
-    
-    .toggle-button{
+.menu-bar-cont {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .toggle-button {
+        display: block;
+        padding: 5px 0;
+        cursor: pointer;
+    }
+
+    .submenu-bar {
+        display: none; 
+        position: absolute;
+        top: 40px;
+        right: 0;       
+        left: auto;
+        background-color: #171c1f;
+        width: 200px;
+        border: 1px solid #232a2f;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        z-index: 100;
+    }
+
+    /* Show menu on hover */
+    .menu-bar-cont:hover .submenu-bar {
         display: block;
     }
-    .submenu-bar{
-        display: none;
-    }
-    .menu-bar-cont:hover .submenu-bar{
-        display:block ;
-        position: absolute;
-         top: 2.5rem;
-         right: 0;
-     
-    }
-    .menu-bar-cont:hover .submenu-bar ul li a{
-     text-decoration: underline;
-    }
-   
-    .menu-bar-cont:hover .submenu-bar ul{
-      display: flex;
-      flex-direction: column;
 
+    .submenu-bar ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
     }
+
+    .submenu-bar ul li {
+        width: 100%;
+        text-align: center; 
+    }
+
+    .submenu-bar ul li a {
+        display: block;
+        width: 90%;
+        padding: 5px;
+    }
+
+    /* .menu-bar-cont:hover .submenu-bar ul li a {
+        text-decoration: underline;
+    } */
+  
 }
-
-
 
